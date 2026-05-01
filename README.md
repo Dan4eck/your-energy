@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# YOUR ENERGY space — место твоей силы
 
-## Getting Started
+Одностраничный лендинг онлайн-клуба мягкой поддержки энергии: 30 дней практик, 16 новых тренировок каждый месяц, экспертные материалы, разборы и поддерживающий чат.
 
-First, run the development server:
+## Стек
+
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- `next/image`
+
+## Запуск
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Открыть локально: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`npm run dev` временно запускает Next.js через Webpack (`next dev --webpack`), потому что на локальной машине Turbopack в Next 16 создавал много короткоживущих `node` процессов и подвешивал систему. Для сравнения оставлен отдельный скрипт:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev:turbo
+```
 
-## Learn More
+## Проверки
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+На 2026-04-30 обе команды проходили. Предупреждение Next.js о нескольких `package-lock.json` выше по дереву закрыто настройкой `turbopack.root = process.cwd()` в `next.config.ts`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Чтобы не перегружать машину, не запускай `npm run lint` и `npm run build` параллельно с `npm run dev`. Если нужно проверить память, сначала запусти только dev-сервер и посмотри Activity Monitor.
 
-## Deploy on Vercel
+## Структура секций
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Header / навигация
+2. Hero + фото
+3. About / О клубе
+4. Program / Программа
+5. Authors / Авторы клуба
+6. Pricing / Тариф
+7. Reviews / Отзывы
+8. Final CTA
+9. Footer
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Контент-статус
+
+Основной клиентский текст от 2026-04-30 внедрен: новое название, описание клуба, программа, авторы, тариф и слоганы.
+
+Текст, который был дописан мной из-за нехватки данных:
+
+- Hero-описание адаптировано из клиентского текста для лучшего первого экрана.
+- Program-дополнения `Тело / Состояние / Знания / Поддержка` — моя структурная редактура.
+- Reviews — черновые отзывы, на сайте явно помечены как `черновик, придумано мной`; перед публикацией заменить на реальные.
+- Final CTA — написана мной на основе философии клиента.
+
+## Что еще нужно от клиента
+
+- Реальные отзывы участниц.
+- Фото Салтанат Ромашовой.
+- Фото Данильчук Ксении или подтверждение текстовых карточек без портретов.
+- Контактная ссылка для оплаты/заявки.
+- Юридические ссылки: оферта и политика конфиденциальности.

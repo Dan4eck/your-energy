@@ -16,9 +16,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Sculpt your body & mind — Клуб для женщин",
+  title: "YOUR ENERGY space — место твоей силы",
   description:
-    "Каждый месяц 16 новых тренировок, встречи с лучшими специалистами и комплексный подход к телу и психике.",
+    "Онлайн-клуб мягкой поддержки энергии: 30 дней, 16 новых тренировок, дыхательные практики, йога, осанка, эксперты и поддерживающий чат.",
 };
 
 export default function RootLayout({
