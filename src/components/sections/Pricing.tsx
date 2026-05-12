@@ -13,7 +13,9 @@ export function Pricing() {
   return (
     <section id="pricing" className="py-24">
       <Container className="max-w-4xl">
-        <div className="rounded-[2.5rem] border border-border bg-cream-dark/60 p-8 md:p-12">
+        <div className="relative border border-border bg-cream-dark/60 p-8 md:p-12">
+          <div className="absolute -left-3 -top-3 h-10 w-10 border-l border-t border-olive/70" />
+          <div className="absolute -bottom-3 -right-3 h-10 w-10 border-b border-r border-olive/70" />
           <div className="grid gap-10 md:grid-cols-[1fr_0.85fr] md:items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.28em] text-text-muted">Тариф</p>
@@ -26,14 +28,14 @@ export function Pricing() {
               <ul className="mt-8 space-y-3 text-text-muted">
                 {includes.map((item) => (
                   <li key={item} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-olive" />
+                    <span className="mt-2 h-2 w-2 shrink-0 bg-olive" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="rounded-[2rem] bg-cream p-8 text-center">
+            <div className="border border-border bg-cream p-8 text-center">
               <p className="text-sm uppercase tracking-[0.22em] text-text-muted">Стоимость</p>
               <div className="mt-4 font-serif text-5xl text-text">12 000 ₸</div>
               <p className="mt-4 text-sm leading-relaxed text-text-muted">

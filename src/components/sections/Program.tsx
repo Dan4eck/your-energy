@@ -34,8 +34,9 @@ export function Program() {
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {programItems.map((item, index) => (
-            <div key={item} className="rounded-[1.5rem] border border-border bg-cream-dark/45 p-6">
-              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-olive text-sm text-white">
+            <div key={item} className="relative border border-border bg-cream-dark/45 p-6">
+              <span className="absolute right-4 top-4 h-3 w-3 border border-olive/60" />
+              <div className="mb-5 flex h-10 w-10 items-center justify-center bg-olive text-sm text-white">
                 {index + 1}
               </div>
               <p className="text-lg leading-relaxed text-text">{item}</p>
@@ -45,7 +46,7 @@ export function Program() {
 
         <div className="mt-14 grid gap-5 md:grid-cols-4">
           {directions.map((direction) => (
-            <article key={direction.title} className="border-t border-border pt-6">
+            <article key={direction.title} className="border-l border-t border-border px-5 pt-6">
               <h3 className="font-serif text-3xl text-text">{direction.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-text-muted">{direction.text}</p>
             </article>

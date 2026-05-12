@@ -41,22 +41,27 @@ export function Author() {
           {authors.map((author) => (
             <article
               key={author.name}
-              className="flex h-full flex-col rounded-[2rem] border border-border bg-cream-dark/45 p-8"
+              className="flex h-full flex-col border border-border bg-cream-dark/45 p-8"
             >
-              <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-olive/15 font-serif text-4xl italic text-olive">
-                {author.short.slice(0, 1)}
+              <div className="mb-8 flex items-end justify-between border-b border-border pb-6">
+                <div className="flex h-20 w-20 items-center justify-center border border-olive/50 bg-cream font-serif text-4xl italic text-olive">
+                  {author.short.slice(0, 1)}
+                </div>
+                <span className="text-xs uppercase tracking-[0.22em] text-text-muted">
+                  author
+                </span>
               </div>
               <h3 className="font-serif text-4xl text-text">{author.name}</h3>
               <p className="mt-2 text-sm uppercase tracking-[0.18em] text-text-muted">{author.role}</p>
               <ul className="mt-8 space-y-4 text-lg leading-relaxed text-text-muted">
                 {author.facts.map((fact) => (
                   <li key={fact} className="flex gap-3">
-                    <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-olive" />
+                    <span className="mt-3 h-1.5 w-1.5 shrink-0 bg-olive" />
                     <span>{fact}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-8 rounded-full bg-cream px-5 py-3 text-sm text-text-muted">
+              <p className="mt-8 border-l-4 border-olive bg-cream px-5 py-3 text-sm text-text-muted">
                 {author.note}
               </p>
             </article>

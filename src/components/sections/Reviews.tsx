@@ -1,3 +1,7 @@
+"use client";
+
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 
 const reviews = [
@@ -16,32 +20,44 @@ const reviews = [
 ];
 
 export function Reviews() {
-  return (
-    <section id="reviews" className="py-24">
-      <Container>
-        <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-start">
-          <div>
-            <p className="text-sm uppercase tracking-[0.28em] text-text-muted">Отзывы</p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-text md:text-6xl">
-              Истории участниц
-            </h2>
-            <p className="mt-6 rounded-[1.5rem] border border-border bg-cream-dark/45 p-5 text-sm leading-relaxed text-text-muted">
-              Черновые отзывы ниже придуманы мной как пример наполнения, потому что реальные отзывы клиент пока не передал. Перед публикацией их нужно заменить на настоящие цитаты участниц.
-            </p>
-          </div>
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeReview = reviews[activeIndex];
 
-          <div className="grid gap-5">
-            {reviews.map((review) => (
-              <article key={review.title} className="rounded-[2rem] border border-border bg-cream-dark/45 p-7">
-                <div className="mb-4 inline-flex rounded-full bg-cream px-4 py-2 text-xs uppercase tracking-[0.18em] text-text-muted">
-                  черновик, придумано мной
-                </div>
-                <h3 className="font-serif text-3xl text-text">{review.title}</h3>
-                <p className="mt-4 text-lg leading-relaxed text-text-muted">“{review.text}”</p>
-                <p className="mt-5 text-sm text-text-muted">— Участница клуба</p>
-              </article>
-            ))}
-          </div>
+  const previousReview = () => {
+    setActiveIndex((current) => (current === 0 ? reviews.length - 1 : current - 1));
+  };
+
+  const nextReview = () => {
+    setActiveIndex((current) => (current === reviews.length - 1 ? 0 : current + 1));
+  };
+
+  return (
+    <section id="reviews" className="py-20">
+      <Container className="max-w-5xl">
+        <div className="grid grid-cols-[48px_1fr_48px] items-center border-y border-border md:grid-cols-[88px_1fr_88px]">
+          <button
+            type="button"
+            aria-label="Предыдущий отзыв"
+            onClick={previousReview}
+            className="flex min-h-80 items-center justify-start text-olive transition-transform duration-200 hover:-translate-x-1 active:-translate-x-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive"
+          >
+            <ChevronLeft className="h-12 w-12 stroke-[1.25] md:h-16 md:w-16" aria-hidden="true" />
+          </button>
+
+          <article className="flex min-h-80 flex-col justify-center px-6 py-12 text-center md:px-16">
+            <p className="mx-auto max-w-3xl font-serif text-3xl leading-tight text-text md:text-5xl">
+              “{activeReview.text}”
+            </p>
+          </article>
+
+          <button
+            type="button"
+            aria-label="Следующий отзыв"
+            onClick={nextReview}
+            className="flex min-h-80 items-center justify-end text-olive transition-transform duration-200 hover:translate-x-1 active:translate-x-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olive"
+          >
+            <ChevronRight className="h-12 w-12 stroke-[1.25] md:h-16 md:w-16" aria-hidden="true" />
+          </button>
         </div>
       </Container>
     </section>
