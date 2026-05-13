@@ -9,8 +9,8 @@
   --color-text-muted: #6B6B6B;
   --color-border: #D4CEC7;
 
-  --font-serif: var(--font-cormorant);
-  --font-sans: var(--font-inter);
+  --font-serif: var(--font-display);
+  --font-sans: var(--font-manrope);
 }
 
 body {

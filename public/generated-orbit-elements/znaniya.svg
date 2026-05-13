@@ -1,0 +1,12 @@
+<svg width="420" height="180" viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="420" height="180" fill="#F5EFE4"/>
+  <text x="42" y="74" fill="#1D1D1B" font-family="Georgia, 'Times New Roman', serif" font-size="31">Знания</text>
+  <text x="42" y="101" fill="#1D1D1B" font-family="Arial, sans-serif" font-size="15" font-weight="600">практики</text>
+  <text x="42" y="121" fill="#1D1D1B" font-family="Arial, sans-serif" font-size="15" font-weight="600">и осознанность</text>
+  <path d="M144 68H260" stroke="#1D1D1B" stroke-width="1.4"/>
+  <circle cx="260" cy="68" r="4.2" fill="#1D1D1B"/>
+  <circle cx="316" cy="68" r="45" fill="#F5EFE4" stroke="#5F5A31" stroke-width="1.5"/>
+  <path d="M315.8 61.6c-4.1-3-8.9-4.3-14-3.9v21.5c5.3-.4 10 .9 14 3.9V61.6Z" stroke="#5F5A31" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M316.2 61.6c4.1-3 8.9-4.3 14-3.9v21.5c-5.3-.4-10 .9-14 3.9V61.6Z" stroke="#5F5A31" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M306.2 64.8c2.6.1 5 .8 7.1 2M325.8 64.8c-2.6.1-5 .8-7.1 2M306.2 70.2c2.6.1 5 .8 7.1 2M325.8 70.2c-2.6.1-5 .8-7.1 2" stroke="#5F5A31" stroke-width="1.3" stroke-linecap="round"/>
+</svg>

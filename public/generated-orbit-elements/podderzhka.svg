@@ -1,0 +1,12 @@
+<svg width="420" height="180" viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="420" height="180" fill="#F5EFE4"/>
+  <circle cx="104" cy="68" r="45" fill="#F5EFE4" stroke="#5F5A31" stroke-width="1.5"/>
+  <circle cx="96" cy="58" r="5.8" stroke="#5F5A31" stroke-width="1.8"/>
+  <circle cx="112" cy="58" r="5.8" stroke="#5F5A31" stroke-width="1.8"/>
+  <path d="M86.8 81c.8-7 4.2-11.1 9.2-11.1s8.4 4.1 9.2 11.1M102.8 81c.8-7 4.2-11.1 9.2-11.1S120.4 74 121.2 81" stroke="#5F5A31" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="144" cy="68" r="4.2" fill="#1D1D1B"/>
+  <path d="M148 68H275" stroke="#1D1D1B" stroke-width="1.4"/>
+  <text x="287" y="74" fill="#1D1D1B" font-family="Georgia, 'Times New Roman', serif" font-size="31">Поддержка</text>
+  <text x="287" y="101" fill="#1D1D1B" font-family="Arial, sans-serif" font-size="15" font-weight="600">сообщество</text>
+  <text x="287" y="121" fill="#1D1D1B" font-family="Arial, sans-serif" font-size="15" font-weight="600">и окружение</text>
+</svg>
