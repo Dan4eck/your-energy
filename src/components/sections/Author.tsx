@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const authorColumns = [
   {
-    name: "Салта",
+    name: "Ксюша",
     direction: "Тело",
     align: "left",
     points: [
@@ -21,11 +21,11 @@ const authorColumns = [
       },
     ],
     note: "Тело — наш проводник в жизнь.",
-    image: "/images/author-salta.jpg",
-    imageAlt: "Портрет Салты, автора направления тела в YOUR ENERGY space",
+    image: "/images/author-ksyusha.jpg",
+    imageAlt: "Ксюша, автор направления тела в YOUR ENERGY space",
   },
   {
-    name: "Ксюша",
+    name: "Салта",
     direction: "Состояние",
     align: "right",
     points: [
@@ -43,8 +43,8 @@ const authorColumns = [
       },
     ],
     note: "Состояние — это наш внутренний дом.",
-    image: "/images/author-ksyusha.jpg",
-    imageAlt: "Ксюша во время медитации у моря, автор направления состояния в YOUR ENERGY space",
+    image: "/images/author-salta.jpg",
+    imageAlt: "Портрет Салты, автора направления состояния в YOUR ENERGY space",
   },
 ];
 
