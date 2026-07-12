@@ -26,15 +26,15 @@ export function About() {
             <div className="absolute left-0 top-0 z-10 h-14 w-14 border-l-4 border-t-4 border-olive" />
             <div className="absolute bottom-0 right-0 z-10 h-14 w-14 border-b-4 border-r-4 border-olive" />
             <Image
-              src="/images/club-author.jpeg"
-              alt="Одна из авторов клуба YOUR ENERGY space во время йога-практики"
-              width={853}
-              height={1280}
-              className="h-full w-full object-cover object-[50%_62%]"
+              src="/images/salta-practice.jpg"
+              alt="Йога-практика в YOUR ENERGY space"
+              width={1066}
+              height={1600}
+              className="h-full w-full object-cover object-center"
               sizes="(min-width: 768px) 42vw, 100vw"
             />
             <div className="absolute bottom-7 left-7 border-l-4 border-olive bg-cream/92 px-5 py-3 text-sm text-text backdrop-blur-sm">
-              Салта
+              мягкость — это сила
             </div>
           </div>
         </div>

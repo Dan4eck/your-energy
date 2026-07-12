@@ -17,9 +17,6 @@ export function Hero() {
             <br />
             <em className="italic">space</em>
           </h1>
-          <p className="mt-4 font-serif text-3xl italic text-olive md:text-4xl">
-            место твоей силы
-          </p>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-text-muted">
             Мягкое онлайн-пространство, где тренировки, дыхание, йога и поддержка экспертов помогают чувствовать тело, управлять состоянием и выстраивать энергию, которая остается с тобой в жизни.
           </p>
@@ -35,7 +32,7 @@ export function Hero() {
               дней
             </div>
             <div className="border-x border-border py-4">
-              <span className="block font-serif text-3xl text-text">16</span>
+              <span className="block font-serif text-3xl text-text">12</span>
               тренировок
             </div>
             <div className="py-4">
@@ -44,22 +41,15 @@ export function Hero() {
             </div>
           </div>
         </div>
-        <div className="order-1 md:order-2">
-          <div className="relative aspect-[3/4] w-full overflow-hidden border border-border bg-cream-dark p-3">
-            <div className="absolute left-0 top-0 z-10 h-14 w-14 border-l-4 border-t-4 border-olive" />
-            <div className="absolute bottom-0 right-0 z-10 h-14 w-14 border-b-4 border-r-4 border-olive" />
-            <Image
-              src="/images/hero-yoga.jpg"
-              alt="Спокойная йога-практика в клубе YOUR ENERGY space"
-              width={600}
-              height={800}
-              className="h-full w-full object-cover"
-              priority
-            />
-            <div className="absolute bottom-7 left-7 border-l-4 border-olive bg-cream/92 px-5 py-3 text-sm text-text backdrop-blur-sm">
-              Ксюша
-            </div>
-          </div>
+        <div className="order-1 mx-auto w-full max-w-[560px] md:order-2">
+          <Image
+            src="/images/your-energy-logo.jpg"
+            alt="Логотип YOUR ENERGY space"
+            width={1254}
+            height={1254}
+            className="h-auto w-full"
+            priority
+          />
         </div>
       </Container>
     </section>
