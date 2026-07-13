@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 const readSource = (path) => readFileSync(new URL(path, import.meta.url), "utf8");
@@ -10,6 +10,41 @@ test("programme describes the updated 12-training club format", () => {
   assert.match(source, /12 новых тренировок/);
   assert.match(source, /Подкаст с приглашенным экспертом/);
   assert.match(source, /Разбор техники в Zoom/);
+});
+
+test("programme introduces the four club directions beside the supplied third-section photo", () => {
+  const source = readSource("../src/components/sections/Program.tsx");
+
+  assert.match(source, /\/images\/program-yoga\.jpg/);
+  assert.doesNotMatch(source, /\/images\/author-ksyusha\.jpg/);
+  assert.ok(existsSync(new URL("../public/images/program-yoga.jpg", import.meta.url)));
+  assert.match(source, /Направления клуба/);
+  assert.match(source, /<ol className="mt-10 flex flex-col divide-y divide-border border-y border-border">/);
+  assert.match(source, /absolute bottom-7 left-7 border-l-4 border-olive bg-cream\/92 px-5 py-3 text-sm text-text backdrop-blur-sm/);
+  assert.match(source, /тело, состояние/);
+  assert.match(source, /знания/);
+  assert.doesNotMatch(source, /<figcaption/);
+  assert.doesNotMatch(source, /overflow-x-auto/);
+
+  for (const title of ["Тело", "Состояние", "Знания", "Поддержка"]) {
+    assert.match(source, new RegExp(`title: "${title}"`));
+  }
+});
+
+test("programme photo and its embedded card reuse the about section layout exactly", () => {
+  const about = readSource("../src/components/sections/About.tsx");
+  const program = readSource("../src/components/sections/Program.tsx");
+
+  for (const layout of [
+    /grid grid-cols-1 items-center gap-12 md:grid-cols-2/,
+    /relative aspect-\[3\/4\] w-full overflow-hidden border border-border bg-cream-dark p-3/,
+    /absolute bottom-7 left-7 border-l-4 border-olive bg-cream\/92 px-5 py-3 text-sm text-text backdrop-blur-sm/,
+  ]) {
+    assert.match(about, layout);
+    assert.match(program, layout);
+  }
+
+  assert.doesNotMatch(program, /max-w-\[440px\]|lg:sticky|aspect-\[4\/5\]|font-serif text-xl/);
 });
 
 test("author section keeps Ksyusha's original portrait and verified biographies", () => {
