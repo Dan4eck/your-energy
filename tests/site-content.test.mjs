@@ -58,10 +58,12 @@ test("author section keeps Ksyusha's original portrait and verified biographies"
   assert.match(source, /С 2022 года проводит йога-выезды/);
 });
 
-test("reviews wait for real participant stories instead of displaying invented testimonials", () => {
+test("reviews display the supplied real participant screenshot without an added source label", () => {
   const source = readSource("../src/components/sections/Reviews.tsx");
 
-  assert.match(source, /Отзывы участниц появятся здесь совсем скоро/);
+  assert.match(source, /\/images\/review-telegram-ksyusha\.jpg/);
+  assert.doesNotMatch(source, /review\.source/);
+  assert.ok(existsSync(new URL("../public/images/review-telegram-ksyusha.jpg", import.meta.url)));
 });
 
 test("hero uses the supplied YOUR ENERGY logo without a decorative box or duplicated tagline", () => {
