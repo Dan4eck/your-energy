@@ -66,12 +66,15 @@ test("reviews display the supplied real participant screenshot without an added 
   assert.ok(existsSync(new URL("../public/images/review-telegram-ksyusha.jpg", import.meta.url)));
 });
 
-test("hero uses the supplied YOUR ENERGY logo without a decorative box or duplicated tagline", () => {
+test("hero uses the supplied Ksyusha and Salta photo in a responsive editorial frame", () => {
   const hero = readSource("../src/components/sections/Hero.tsx");
   const about = readSource("../src/components/sections/About.tsx");
 
-  assert.match(hero, /\/images\/your-energy-logo\.jpg/);
-  assert.doesNotMatch(hero, /aspect-\[3\/4\]/);
+  assert.match(hero, /hero-ksyusha-salta\.jpg/);
+  assert.ok(existsSync(new URL("../public/images/hero-ksyusha-salta.jpg", import.meta.url)));
+  assert.match(hero, /Ксюша и Салта, авторы клуба YOUR ENERGY space/);
+  assert.match(hero, /aspect-\[4\/3\].*sm:aspect-\[3\/2\].*lg:aspect-\[6\/5\]/);
+  assert.match(hero, /Ксюша &amp; Салта/);
   assert.doesNotMatch(hero, /место твоей силы/);
   assert.match(about, /\/images\/salta-practice\.jpg/);
 });
