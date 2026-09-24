@@ -11,7 +11,7 @@ export function Hero() {
       <Container className="relative grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:gap-12 xl:gap-16">
         <div className="border-l border-olive/30 pl-5 sm:pl-8">
           <p className="mb-4 text-xs uppercase tracking-[0.28em] text-text-muted sm:text-sm">
-            Онлайн-клуб на 30 дней
+            Онлайн-клуб по подписке
           </p>
           <h1 className="font-serif text-[clamp(3.25rem,7vw,6.75rem)] leading-[0.9] tracking-[-0.035em] text-text">
             YOUR ENERGY
@@ -29,8 +29,8 @@ export function Hero() {
           </div>
           <div className="mt-8 grid max-w-[36rem] grid-cols-3 border-y border-border text-center text-xs text-text-muted sm:mt-10 sm:text-sm">
             <div className="py-3.5 sm:py-4">
-              <span className="block font-serif text-2xl text-text sm:text-3xl">30</span>
-              дней
+              <span className="block font-serif text-2xl text-text sm:text-3xl">1–6</span>
+              месяцев
             </div>
             <div className="border-x border-border py-3.5 sm:py-4">
               <span className="block font-serif text-2xl text-text sm:text-3xl">12</span>

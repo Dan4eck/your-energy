@@ -6,7 +6,7 @@ const navLinks = [
   { label: "О клубе", href: "#about" },
   { label: "Программа", href: "#program" },
   { label: "Авторы", href: "#author" },
-  { label: "Тариф", href: "#pricing" },
+  { label: "Тарифы", href: "#pricing" },
   { label: "Отзывы", href: "#reviews" },
 ];
 

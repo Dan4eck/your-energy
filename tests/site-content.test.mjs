@@ -78,3 +78,26 @@ test("hero uses the supplied Ksyusha and Salta photo in a responsive editorial f
   assert.doesNotMatch(hero, /место твоей силы/);
   assert.match(about, /\/images\/salta-practice\.jpg/);
 });
+
+test("pricing offers three discounted periods and routes payment to the teacher in Telegram", () => {
+  const pricing = readSource("../src/components/sections/Pricing.tsx");
+  const cta = readSource("../src/components/sections/CTA.tsx");
+  const footer = readSource("../src/components/sections/Footer.tsx");
+  const constants = readSource("../src/lib/constants.ts");
+
+  for (const duration of ["1 месяц", "3 месяца", "6 месяцев"]) {
+    assert.match(pricing, new RegExp(`duration: "${duration}"`));
+  }
+
+  for (const price of ["12 000 ₸", "34 200 ₸", "64 800 ₸"]) {
+    assert.match(pricing, new RegExp(price));
+  }
+
+  assert.match(pricing, /discount: "−5%"/);
+  assert.match(pricing, /discount: "−10%"/);
+  assert.match(constants, /https:\/\/t\.me\/itsyogawithksu/);
+  assert.match(pricing, /href=\{TELEGRAM_PAYMENT_URL\}/);
+  assert.match(cta, /href=\{TELEGRAM_PAYMENT_URL\}/);
+  assert.match(footer, /href=\{TELEGRAM_PAYMENT_URL\}/);
+  assert.doesNotMatch(pricing, /href="#final-cta"/);
+});

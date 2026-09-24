@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { TELEGRAM_PAYMENT_URL } from "@/lib/constants";
 
 export function Footer() {
   return (
@@ -10,7 +11,15 @@ export function Footer() {
         <div className="flex flex-wrap justify-center gap-6 text-sm text-text-muted">
           <a href="#about" className="transition-colors hover:text-text">О клубе</a>
           <a href="#program" className="transition-colors hover:text-text">Программа</a>
-          <a href="#pricing" className="transition-colors hover:text-text">Тариф</a>
+          <a href="#pricing" className="transition-colors hover:text-text">Тарифы</a>
+          <a
+            href={TELEGRAM_PAYMENT_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors hover:text-text"
+          >
+            Оплата в Telegram
+          </a>
           <a href="#" className="transition-colors hover:text-text">Публичная оферта</a>
           <a href="#" className="transition-colors hover:text-text">Политика конфиденциальности</a>
         </div>

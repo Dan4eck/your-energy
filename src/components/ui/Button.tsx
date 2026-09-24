@@ -24,8 +24,15 @@ export function Button({
   ...props
 }: ButtonProps) {
   if (href) {
+    const isExternal = href.startsWith("http://") || href.startsWith("https://");
+
     return (
-      <a href={href} className={buttonClasses(variant, className)}>
+      <a
+        href={href}
+        className={buttonClasses(variant, className)}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noreferrer" : undefined}
+      >
         {children}
       </a>
     );
