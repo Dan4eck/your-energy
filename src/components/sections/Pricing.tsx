@@ -140,7 +140,7 @@ export function Pricing() {
             ))}
           </div>
 
-          <div className="mt-12 grid gap-8 border-t border-border pt-10 md:grid-cols-[1fr_0.9fr] md:items-start">
+          <div className="mt-12 grid gap-8 pt-2 md:grid-cols-[1fr_0.9fr] md:items-start">
             <ul className="grid gap-3 text-text-muted sm:grid-cols-2">
               {includes.map((item) => (
                 <li key={item} className="flex gap-3">

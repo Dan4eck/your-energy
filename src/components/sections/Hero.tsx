@@ -6,7 +6,6 @@ import heroPhoto from "../../../public/images/hero-ksyusha-salta.jpg";
 export function Hero() {
   return (
     <section className="relative flex min-h-[calc(100svh-81px)] items-center overflow-hidden py-10 sm:py-14 lg:py-16">
-      <div className="absolute inset-x-0 top-0 h-px bg-olive/20" />
       <div className="absolute right-0 top-10 h-48 w-48 rounded-full border border-olive/10 sm:h-96 sm:w-96" />
       <Container className="relative grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:gap-12 xl:gap-16">
         <div className="border-l border-olive/30 pl-5 sm:pl-8">

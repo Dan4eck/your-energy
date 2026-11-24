@@ -41,8 +41,4 @@ html {
   section[id] {
     scroll-margin-top: 5.5rem;
   }
-
-  main > section:not(:first-child) {
-    @apply border-t border-border/70;
-  }
 }

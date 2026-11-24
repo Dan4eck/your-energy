@@ -79,18 +79,15 @@ function AuthorCard({ author }: { author: Author }) {
         </figcaption>
       </figure>
 
-      <div className="mt-8 border-b border-border pb-6">
+      <div className="mt-8">
         <h3 className="font-serif text-4xl leading-none text-olive md:text-5xl">{author.name}</h3>
         <p className="mt-2.5 text-xs uppercase tracking-[0.2em] text-text-muted sm:text-sm">
           {author.fullName}
         </p>
-        <div className="mt-4 flex items-center gap-3">
-          <span className="h-px w-8 shrink-0 bg-olive/60" />
-          <p className="font-serif text-xl text-text sm:text-2xl">{author.direction}</p>
-        </div>
+        <p className="mt-4 font-serif text-xl text-text sm:text-2xl">{author.direction}</p>
       </div>
 
-      <ol className="relative ml-1 mt-7 flex flex-1 flex-col gap-6 border-l border-olive/35 pl-6">
+      <ol className="relative ml-1 mt-7 flex flex-1 flex-col gap-6 border-l border-olive/30 pl-6">
         {author.points.map((point) => (
           <li key={point.title} className="relative">
             <span className="absolute -left-[29px] top-1.5 h-2 w-2 bg-olive" />
@@ -115,7 +112,6 @@ export function Author() {
             <span className="text-olive">Вас приветствуют</span>
             <span className="mt-1 block">Ксюша и Салта</span>
           </h2>
-          <div className="mx-auto mt-7 h-px w-10 bg-olive/60" />
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg">
             Мы хотим поделиться знаниями, опытом и экспертами, которые меняли нашу жизнь на протяжении последних 10 лет.
           </p>
@@ -127,11 +123,11 @@ export function Author() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-3 border-y border-border py-7 text-center sm:flex-row sm:justify-center sm:gap-6">
+        <div className="mt-12 flex flex-col items-center gap-3 py-4 text-center sm:flex-row sm:justify-center sm:gap-6">
           <span className="font-serif text-2xl tracking-tight text-text">
             YOUR ENERGY <em className="italic">space</em>
           </span>
-          <span className="hidden h-5 w-px bg-olive/35 sm:block" />
+          <span className="hidden h-5 w-px bg-olive/30 sm:block" />
           <p className="max-w-md text-sm leading-relaxed text-text-muted sm:text-left sm:text-base">
             Мягкость, знания и поддержка, которые помогают возвращаться к себе.
           </p>

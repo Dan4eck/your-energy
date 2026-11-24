@@ -81,7 +81,7 @@ export function FAQ() {
           </p>
         </div>
 
-        <div className="mt-12 divide-y divide-border border-y border-border">
+        <div className="mt-12 divide-y divide-border/70">
           {faqItems.map((item, index) => {
             const isOpen = openIndex === index;
             const panelId = `faq-panel-${index}`;

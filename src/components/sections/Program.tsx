@@ -98,7 +98,7 @@ export function Program() {
           </div>
         </div>
 
-        <div className="mt-20 grid gap-10 border-t border-border pt-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-end md:mt-28">
+        <div className="mt-24 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end md:mt-32">
           <div>
             <p className="text-sm uppercase tracking-[0.28em] text-text-muted">Программа</p>
             <h2 className="mt-4 font-serif text-4xl leading-[1.08] text-text md:text-5xl lg:text-6xl">
@@ -114,16 +114,13 @@ export function Program() {
           {programItems.map((item, index) => (
             <article
               key={item.title}
-              className={`flex flex-col border border-border bg-cream-dark/45 p-7 transition-colors duration-200 hover:border-olive/55 ${
+              className={`flex flex-col border border-border/80 bg-cream-dark/45 p-7 transition-colors duration-200 hover:border-olive/55 ${
                 index < 3 ? "lg:col-span-2" : "lg:col-span-3"
               } ${index === 4 ? "md:col-span-2 lg:col-span-3" : ""}`}
             >
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center bg-olive text-sm font-medium text-white">
-                  0{index + 1}
-                </span>
-                <span className="h-px flex-1 bg-border/80" />
-              </div>
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center bg-olive text-sm font-medium text-white">
+                0{index + 1}
+              </span>
               <h3 className="mt-6 font-serif text-2xl leading-snug text-text">{item.title}</h3>
               <p className="mt-3 text-base leading-relaxed text-text-muted">{item.description}</p>
             </article>

@@ -3,7 +3,7 @@ import { TELEGRAM_PAYMENT_URL } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-12">
+    <footer className="border-t border-border/60 py-12">
       <Container className="flex flex-col items-center justify-between gap-6 md:flex-row">
         <p className="text-sm text-text-muted">
           © {new Date().getFullYear()} YOUR ENERGY space — место твоей силы

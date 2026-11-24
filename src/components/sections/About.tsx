@@ -47,7 +47,7 @@ export function About() {
             Мы не работаем на износ, а учимся чувствовать свое тело, управлять состоянием и выстраивать энергию, которая остается в жизни, а не только после тренировки.
           </p>
 
-          <div className="mt-10 divide-y divide-border border-y border-border">
+          <div className="mt-8 divide-y divide-border/70">
             {principles.map((principle) => (
               <article
                 key={principle.title}

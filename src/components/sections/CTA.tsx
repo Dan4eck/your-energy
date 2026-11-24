@@ -6,7 +6,7 @@ export function CTA() {
   return (
     <section id="final-cta" className="py-20 md:py-24">
       <Container className="max-w-5xl">
-        <div className="border-y border-border py-14 text-center md:py-16">
+        <div className="bg-cream-dark/55 px-6 py-14 text-center sm:px-10 md:py-16">
           <p className="text-sm uppercase tracking-[0.28em] text-text-muted">мягкость — это сила</p>
           <h2 className="mx-auto mt-5 max-w-3xl font-serif text-4xl leading-[1.08] text-text md:text-5xl lg:text-6xl">
             Присоединяйся к пространству, где энергия становится твоей опорой
