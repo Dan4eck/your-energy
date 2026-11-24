@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Авторы", href: "#author" },
   { label: "Тарифы", href: "#pricing" },
   { label: "Отзывы", href: "#reviews" },
+  { label: "Вопросы", href: "#faq" },
 ];
 
 export function Header() {

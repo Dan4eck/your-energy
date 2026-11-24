@@ -12,6 +12,7 @@ export function Footer() {
           <a href="#about" className="transition-colors hover:text-text">О клубе</a>
           <a href="#program" className="transition-colors hover:text-text">Программа</a>
           <a href="#pricing" className="transition-colors hover:text-text">Тарифы</a>
+          <a href="#faq" className="transition-colors hover:text-text">Вопросы</a>
           <a
             href={TELEGRAM_PAYMENT_URL}
             target="_blank"

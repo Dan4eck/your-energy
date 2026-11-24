@@ -15,22 +15,25 @@ const plans = [
     duration: "1 месяц",
     access: "30 дней доступа",
     price: "12 000 ₸",
-    monthly: "12 000 ₸ / месяц",
+    priceRub: "2 500 ₽",
+    monthly: "12 000 ₸ · 2 500 ₽ / месяц",
   },
   {
     duration: "3 месяца",
     access: "90 дней доступа",
     price: "34 200 ₸",
+    priceRub: "6 800 ₽",
     oldPrice: "36 000 ₸",
-    monthly: "11 400 ₸ / месяц",
+    monthly: "11 400 ₸ · ~2 270 ₽ / месяц",
     discount: "−5%",
   },
   {
     duration: "6 месяцев",
     access: "180 дней доступа",
     price: "64 800 ₸",
+    priceRub: "12 900 ₽",
     oldPrice: "72 000 ₸",
-    monthly: "10 800 ₸ / месяц",
+    monthly: "10 800 ₸ · 2 150 ₽ / месяц",
     discount: "−10%",
     featured: true,
   },
@@ -81,18 +84,23 @@ export function Pricing() {
                 </p>
                 <h3 className="mt-5 font-serif text-4xl leading-tight">{plan.duration}</h3>
                 <div className="mt-8">
-                  {plan.oldPrice && (
-                    <div
-                      className={`text-sm line-through ${
-                        plan.featured ? "text-white/55" : "text-text-muted"
-                      }`}
-                    >
-                      {plan.oldPrice}
-                    </div>
-                  )}
-                  <div className="mt-1 font-serif text-4xl">{plan.price}</div>
+                  <div
+                    className={`min-h-5 text-sm line-through ${
+                      plan.featured ? "text-white/55" : "text-text-muted"
+                    }`}
+                  >
+                    {plan.oldPrice ?? ""}
+                  </div>
+                  <div className="mt-1 font-serif text-4xl leading-none">{plan.price}</div>
+                  <div
+                    className={`mt-2 font-serif text-2xl leading-none ${
+                      plan.featured ? "text-white/85" : "text-olive"
+                    }`}
+                  >
+                    {plan.priceRub}
+                  </div>
                   <p
-                    className={`mt-2 text-sm ${
+                    className={`mt-3 text-sm ${
                       plan.featured ? "text-white/70" : "text-text-muted"
                     }`}
                   >
@@ -127,7 +135,7 @@ export function Pricing() {
             </ul>
             <div className="md:text-right">
               <p className="text-sm leading-relaxed text-text-muted">
-                Оплата оформляется напрямую у преподавателя в Telegram. Можно оплатить в любой валюте — Ксюша подскажет удобный способ.
+                Оплата оформляется напрямую у преподавателя в Telegram — можно оплатить в тенге, рублях или любой другой валюте, Ксюша подскажет удобный способ.
               </p>
               <a
                 href={TELEGRAM_PAYMENT_URL}

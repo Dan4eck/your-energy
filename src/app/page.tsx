@@ -6,6 +6,7 @@ import { VideoPreview } from "@/components/sections/VideoPreview";
 import { Author } from "@/components/sections/Author";
 import { Pricing } from "@/components/sections/Pricing";
 import { Reviews } from "@/components/sections/Reviews";
+import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 
@@ -21,6 +22,7 @@ export default function Home() {
         <Author />
         <Pricing />
         <Reviews />
+        <FAQ />
         <CTA />
       </main>
       <Footer />

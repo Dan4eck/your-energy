@@ -58,12 +58,19 @@ test("author section keeps Ksyusha's original portrait and verified biographies"
   assert.match(source, /С 2022 года проводит йога-выезды/);
 });
 
-test("reviews display the supplied real participant screenshot without an added source label", () => {
+test("reviews display the supplied real participant screenshots without an added source label", () => {
   const source = readSource("../src/components/sections/Reviews.tsx");
 
-  assert.match(source, /\/images\/review-telegram-ksyusha\.jpg/);
+  for (const image of [
+    "review-telegram-ksyusha.jpg",
+    "review-whatsapp-format.jpg",
+    "review-telegram-levels.jpg",
+  ]) {
+    assert.match(source, new RegExp(`/images/${image.replace(".", "\\.")}`));
+    assert.ok(existsSync(new URL(`../public/images/${image}`, import.meta.url)));
+  }
+
   assert.doesNotMatch(source, /review\.source/);
-  assert.ok(existsSync(new URL("../public/images/review-telegram-ksyusha.jpg", import.meta.url)));
 });
 
 test("hero uses the supplied Ksyusha and Salta photo in a responsive editorial frame", () => {
@@ -89,7 +96,7 @@ test("pricing offers three discounted periods and routes payment to the teacher 
     assert.match(pricing, new RegExp(`duration: "${duration}"`));
   }
 
-  for (const price of ["12 000 ₸", "34 200 ₸", "64 800 ₸"]) {
+  for (const price of ["12 000 ₸", "34 200 ₸", "64 800 ₸", "2 500 ₽", "6 800 ₽", "12 900 ₽"]) {
     assert.match(pricing, new RegExp(price));
   }
 
@@ -100,4 +107,18 @@ test("pricing offers three discounted periods and routes payment to the teacher 
   assert.match(cta, /href=\{TELEGRAM_PAYMENT_URL\}/);
   assert.match(footer, /href=\{TELEGRAM_PAYMENT_URL\}/);
   assert.doesNotMatch(pricing, /href="#final-cta"/);
+});
+
+test("faq accordion is wired into the landing page and explains Telegram payment", () => {
+  const faq = readSource("../src/components/sections/FAQ.tsx");
+  const page = readSource("../src/app/page.tsx");
+  const header = readSource("../src/components/sections/Header.tsx");
+
+  assert.match(page, /<FAQ \/>/);
+  assert.match(header, /href: "#faq"/);
+  assert.match(faq, /"use client"/);
+  assert.match(faq, /aria-expanded/);
+  assert.match(faq, /TELEGRAM_PAYMENT_URL/);
+  assert.match(faq, /@itsyogawithksu/);
+  assert.match(faq, /Как оплатить/);
 });
