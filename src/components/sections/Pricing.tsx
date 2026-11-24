@@ -39,13 +39,27 @@ const plans = [
   },
 ];
 
+function TengeAmount({ value }: { value: string }) {
+  if (!value.endsWith(" ₸")) {
+    return <>{value}</>;
+  }
+
+  const amount = value.slice(0, -2);
+  return (
+    <>
+      {amount}
+      <span className="ml-1.5 font-sans text-[0.72em] font-light">₸</span>
+    </>
+  );
+}
+
 export function Pricing() {
   return (
-    <section id="pricing" className="py-24">
+    <section id="pricing" className="overflow-x-clip py-20 md:py-28">
       <Container className="max-w-6xl">
         <div className="relative border border-border bg-cream-dark/60 p-6 sm:p-8 md:p-12">
-          <div className="absolute -left-3 -top-3 h-10 w-10 border-l border-t border-olive/70" />
-          <div className="absolute -bottom-3 -right-3 h-10 w-10 border-b border-r border-olive/70" />
+          <div className="pointer-events-none absolute -left-3 -top-3 hidden h-10 w-10 border-l border-t border-olive/70 sm:block" />
+          <div className="pointer-events-none absolute -bottom-3 -right-3 hidden h-10 w-10 border-b border-r border-olive/70 sm:block" />
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm uppercase tracking-[0.28em] text-text-muted">Тарифы</p>
             <h2 className="mt-4 font-serif text-4xl leading-tight text-text md:text-6xl">
@@ -91,7 +105,9 @@ export function Pricing() {
                   >
                     {plan.oldPrice ?? ""}
                   </div>
-                  <div className="mt-1 font-serif text-4xl leading-none">{plan.price}</div>
+                  <div className="mt-1 font-serif text-4xl leading-none">
+                    <TengeAmount value={plan.price} />
+                  </div>
                   <div
                     className={`mt-2 font-serif text-2xl leading-none ${
                       plan.featured ? "text-white/85" : "text-olive"

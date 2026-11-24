@@ -19,12 +19,11 @@ const principles = [
 export function About() {
   return (
     <section id="about" className="relative overflow-hidden py-20 md:py-28">
-      <div className="absolute left-8 top-20 hidden h-32 w-24 border-l border-t border-olive/25 md:block" />
       <Container className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         <div className="relative">
           <div className="relative aspect-[3/4] w-full overflow-hidden border border-border bg-cream-dark p-3">
-            <div className="absolute left-0 top-0 z-10 h-14 w-14 border-l-4 border-t-4 border-olive" />
-            <div className="absolute bottom-0 right-0 z-10 h-14 w-14 border-b-4 border-r-4 border-olive" />
+            <div className="absolute left-0 top-0 z-10 h-14 w-14 border-l border-t border-olive/70" />
+            <div className="absolute bottom-0 right-0 z-10 h-14 w-14 border-b border-r border-olive/70" />
             <Image
               src="/images/salta-practice.jpg"
               alt="Йога-практика в YOUR ENERGY space"
@@ -41,10 +40,10 @@ export function About() {
 
         <div className="border-l border-olive/30 pl-6 md:pl-8">
           <p className="text-sm uppercase tracking-[0.28em] text-text-muted">О клубе</p>
-          <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.02] text-text md:text-6xl lg:text-7xl">
+          <h2 className="mt-4 max-w-2xl font-serif text-4xl leading-[1.06] text-text md:text-5xl lg:text-6xl">
             Мягкие инструменты поддерживают твою энергию
           </h2>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-text-muted md:text-xl">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-muted md:text-xl">
             Мы не работаем на износ, а учимся чувствовать свое тело, управлять состоянием и выстраивать энергию, которая остается в жизни, а не только после тренировки.
           </p>
 
@@ -52,9 +51,9 @@ export function About() {
             {principles.map((principle) => (
               <article
                 key={principle.title}
-                className="group grid gap-3 py-6 transition-colors duration-200 md:grid-cols-[0.42fr_0.58fr] md:gap-8"
+                className="group grid gap-3 py-6 transition-colors duration-200 md:grid-cols-[0.44fr_0.56fr] md:gap-8"
               >
-                <h3 className="font-serif text-3xl italic leading-none text-text transition-colors duration-200 group-hover:text-olive md:text-4xl">
+                <h3 className="font-serif text-2xl italic leading-snug text-text transition-colors duration-200 group-hover:text-olive md:text-3xl">
                   {principle.title}
                 </h3>
                 <p className="leading-relaxed text-text-muted">{principle.text}</p>

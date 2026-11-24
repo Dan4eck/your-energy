@@ -11,18 +11,18 @@ export function Footer() {
         <div className="flex flex-wrap justify-center gap-6 text-sm text-text-muted">
           <a href="#about" className="transition-colors hover:text-text">О клубе</a>
           <a href="#program" className="transition-colors hover:text-text">Программа</a>
+          <a href="#author" className="transition-colors hover:text-text">Авторы</a>
           <a href="#pricing" className="transition-colors hover:text-text">Тарифы</a>
+          <a href="#reviews" className="transition-colors hover:text-text">Отзывы</a>
           <a href="#faq" className="transition-colors hover:text-text">Вопросы</a>
           <a
             href={TELEGRAM_PAYMENT_URL}
             target="_blank"
             rel="noreferrer"
-            className="transition-colors hover:text-text"
+            className="font-medium text-olive transition-colors hover:text-olive-hover"
           >
             Оплата в Telegram
           </a>
-          <a href="#" className="transition-colors hover:text-text">Публичная оферта</a>
-          <a href="#" className="transition-colors hover:text-text">Политика конфиденциальности</a>
         </div>
       </Container>
     </footer>

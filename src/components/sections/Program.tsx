@@ -2,11 +2,26 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 
 const programItems = [
-  "12 новых тренировок: растяжка, дыхательные практики, йога и занятия по осанке",
-  "Подкаст с приглашенным экспертом: психологом, коучем или нутрициологом",
-  "Разбор техники в Zoom",
-  "Можно отправить фото и видео тренировок на разбор",
-  "Поддерживающий чат без гонки и сравнения",
+  {
+    title: "12 новых тренировок",
+    description: "Растяжка, дыхательные практики, йога и занятия по осанке каждый месяц в удобной записи.",
+  },
+  {
+    title: "Подкаст с приглашенным экспертом",
+    description: "Разговоры и практические разборы с психологом, коучем или нутрициологом.",
+  },
+  {
+    title: "Разбор техники в Zoom",
+    description: "Живая онлайн-встреча с преподавателями для вопросов и бережной настройки техники.",
+  },
+  {
+    title: "Обратная связь по фото и видео",
+    description: "Можно отправить фото и видео тренировок на разбор, чтобы получить персональные рекомендации.",
+  },
+  {
+    title: "Поддерживающий чат",
+    description: "Тёплое сообщество участниц без гонки, давления и сравнения, где проще держать ритм.",
+  },
 ];
 
 const directions = [
@@ -35,13 +50,12 @@ const directions = [
 export function Program() {
   return (
     <section id="program" className="relative overflow-hidden py-20 md:py-28">
-      <div className="absolute left-8 top-20 hidden h-32 w-24 border-l border-t border-olive/25 md:block" />
       <Container>
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div className="relative">
             <div className="relative aspect-[3/4] w-full overflow-hidden border border-border bg-cream-dark p-3">
-              <div className="absolute left-0 top-0 z-10 h-14 w-14 border-l-4 border-t-4 border-olive" />
-              <div className="absolute bottom-0 right-0 z-10 h-14 w-14 border-b-4 border-r-4 border-olive" />
+              <div className="absolute left-0 top-0 z-10 h-14 w-14 border-l border-t border-olive/70" />
+              <div className="absolute bottom-0 right-0 z-10 h-14 w-14 border-b border-r border-olive/70" />
               <Image
                 src="/images/program-yoga.jpg"
                 alt="Практика йоги в YOUR ENERGY space"
@@ -58,10 +72,10 @@ export function Program() {
 
           <div className="border-l border-olive/30 pl-6 md:pl-8">
             <p className="text-sm uppercase tracking-[0.28em] text-text-muted">Направления клуба</p>
-            <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.02] text-text md:text-6xl">
+            <h2 className="mt-4 max-w-2xl font-serif text-4xl leading-[1.06] text-text md:text-5xl lg:text-6xl">
               Мягкая поддержка — на четырёх уровнях
             </h2>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-text-muted md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-muted md:text-xl">
               Через тело, состояние, знания и окружение мы выстраиваем энергию, которая остаётся с тобой и за пределами тренировки.
             </p>
 
@@ -84,10 +98,10 @@ export function Program() {
           </div>
         </div>
 
-        <div className="mt-20 grid gap-12 border-t border-border pt-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-end md:mt-28">
+        <div className="mt-20 grid gap-10 border-t border-border pt-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-end md:mt-28">
           <div>
             <p className="text-sm uppercase tracking-[0.28em] text-text-muted">Программа</p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-text md:text-6xl">
+            <h2 className="mt-4 font-serif text-4xl leading-[1.08] text-text md:text-5xl lg:text-6xl">
               30 дней практик, чтобы поддержать энергию регулярно
             </h2>
           </div>
@@ -96,13 +110,23 @@ export function Program() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
           {programItems.map((item, index) => (
-            <div key={item} className="relative border border-border bg-cream-dark/45 p-6">
-              <span className="absolute right-4 top-4 h-3 w-3 border border-olive/60" />
-              <div className="mb-5 flex h-10 w-10 items-center justify-center bg-olive text-sm text-white">{index + 1}</div>
-              <p className="text-lg leading-relaxed text-text">{item}</p>
-            </div>
+            <article
+              key={item.title}
+              className={`flex flex-col border border-border bg-cream-dark/45 p-7 transition-colors duration-200 hover:border-olive/55 ${
+                index < 3 ? "lg:col-span-2" : "lg:col-span-3"
+              } ${index === 4 ? "md:col-span-2 lg:col-span-3" : ""}`}
+            >
+              <div className="flex items-center gap-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center bg-olive text-sm font-medium text-white">
+                  0{index + 1}
+                </span>
+                <span className="h-px flex-1 bg-border/80" />
+              </div>
+              <h3 className="mt-6 font-serif text-2xl leading-snug text-text">{item.title}</h3>
+              <p className="mt-3 text-base leading-relaxed text-text-muted">{item.description}</p>
+            </article>
           ))}
         </div>
       </Container>

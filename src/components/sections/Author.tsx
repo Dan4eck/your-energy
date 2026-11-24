@@ -9,6 +9,7 @@ type Author = {
   note: string;
   image: string;
   imageAlt: string;
+  imagePosition: string;
 };
 
 const authors: Author[] = [
@@ -33,6 +34,7 @@ const authors: Author[] = [
     note: "Йога, движение и бережная регулярность.",
     image: "/images/author-ksyusha.jpg",
     imageAlt: "Ксюша, автор направления йоги в YOUR ENERGY space",
+    imagePosition: "object-[50%_72%]",
   },
   {
     name: "Салта",
@@ -55,96 +57,84 @@ const authors: Author[] = [
     note: "Тело и состояние — опора в жизни.",
     image: "/images/salta-portrait.jpg",
     imageAlt: "Салтанат Ромашова, автор YOUR ENERGY space",
+    imagePosition: "object-[50%_20%]",
   },
 ];
 
-function AuthorGuide({ author }: { author: Author }) {
+function AuthorCard({ author }: { author: Author }) {
   return (
-    <aside className="flex flex-col gap-8 text-text md:max-w-[220px]">
-      <div>
+    <article className="flex flex-col border border-border bg-cream-dark/35 p-5 sm:p-7">
+      <figure className="relative">
+        <div className="relative aspect-[4/5] w-full overflow-hidden border border-olive/20 bg-cream-dark/40">
+          <Image
+            src={author.image}
+            alt={author.imageAlt}
+            fill
+            sizes="(min-width: 1024px) 44vw, calc(100vw - 64px)"
+            className={`object-cover ${author.imagePosition}`}
+          />
+        </div>
+        <figcaption className="relative z-10 mx-auto -mt-6 w-[86%] border border-border/80 bg-cream px-5 py-3.5 text-center font-serif text-lg italic leading-snug text-text-muted shadow-sm">
+          {author.note}
+        </figcaption>
+      </figure>
+
+      <div className="mt-8 border-b border-border pb-6">
         <h3 className="font-serif text-4xl leading-none text-olive md:text-5xl">{author.name}</h3>
-        <p className="mt-3 text-sm uppercase tracking-[0.18em] text-text-muted">{author.fullName}</p>
-        <div className="mt-6 flex items-center gap-5">
-          <span className="h-px w-12 bg-olive" />
-          <p className="font-serif text-2xl text-text md:text-3xl">{author.direction}</p>
+        <p className="mt-2.5 text-xs uppercase tracking-[0.2em] text-text-muted sm:text-sm">
+          {author.fullName}
+        </p>
+        <div className="mt-4 flex items-center gap-3">
+          <span className="h-px w-8 shrink-0 bg-olive/60" />
+          <p className="font-serif text-xl text-text sm:text-2xl">{author.direction}</p>
         </div>
       </div>
 
-      <ol className="relative ml-1 flex flex-col gap-8 border-l border-olive/35 pl-7">
+      <ol className="relative ml-1 mt-7 flex flex-1 flex-col gap-6 border-l border-olive/35 pl-6">
         {author.points.map((point) => (
           <li key={point.title} className="relative">
-            <span className="absolute -left-[33px] top-1.5 h-2.5 w-2.5 bg-olive" />
-            <p className="text-sm font-semibold text-text">{point.title}</p>
-            <p className="mt-3 text-sm leading-relaxed text-text-muted">{point.text}</p>
+            <span className="absolute -left-[29px] top-1.5 h-2 w-2 bg-olive" />
+            <p className="text-sm font-semibold text-text sm:text-base">{point.title}</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-text-muted sm:text-base">
+              {point.text}
+            </p>
           </li>
         ))}
       </ol>
-    </aside>
-  );
-}
-
-function AuthorPhoto({ author }: { author: Author }) {
-  return (
-    <figure className="relative mx-auto w-full max-w-[420px]">
-      <div className="relative aspect-[3/4] overflow-hidden border border-olive/25 bg-cream-dark/35 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]">
-        <Image
-          src={author.image}
-          alt={author.imageAlt}
-          fill
-          sizes="(min-width: 1280px) 390px, (min-width: 1024px) 330px, calc(100vw - 48px)"
-          className="object-cover"
-        />
-      </div>
-      <figcaption className="mx-auto -mt-7 w-[78%] rotate-[-1.5deg] border border-border/80 bg-cream px-5 py-4 font-serif text-lg italic leading-snug text-text-muted shadow-sm">
-        {author.note}
-      </figcaption>
-    </figure>
+    </article>
   );
 }
 
 export function Author() {
-  const [ksyusha, salta] = authors;
-
   return (
-    <section id="author" className="overflow-hidden py-20 md:py-28">
-      <Container className="max-w-[1480px]">
-        <div className="mx-auto max-w-4xl text-center">
+    <section id="author" className="overflow-x-clip py-20 md:py-28">
+      <Container>
+        <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm uppercase tracking-[0.28em] text-text-muted">Авторы клуба</p>
-          <h2 className="mt-4 font-serif text-5xl leading-[0.95] text-text md:text-7xl">
+          <h2 className="mt-4 font-serif text-4xl leading-[1.02] text-text md:text-6xl">
             <span className="text-olive">Вас приветствуют</span>
-            <span className="block">Ксюша и Салта</span>
+            <span className="mt-1 block">Ксюша и Салта</span>
           </h2>
-          <div className="mx-auto mt-8 h-px w-8 bg-olive" />
-          <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-text-muted">
+          <div className="mx-auto mt-7 h-px w-10 bg-olive/60" />
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg">
             Мы хотим поделиться знаниями, опытом и экспертами, которые меняли нашу жизнь на протяжении последних 10 лет.
           </p>
         </div>
 
-        <div className="mt-16 grid items-center gap-9 lg:grid-cols-[150px_minmax(220px,330px)_minmax(200px,260px)_minmax(220px,330px)_150px] xl:grid-cols-[190px_minmax(280px,390px)_minmax(230px,300px)_minmax(280px,390px)_190px]">
-          <AuthorGuide author={ksyusha} />
-          <div className="order-first lg:order-none">
-            <AuthorPhoto author={ksyusha} />
-          </div>
+        <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+          {authors.map((author) => (
+            <AuthorCard key={author.name} author={author} />
+          ))}
+        </div>
 
-          <div className="relative flex min-h-72 flex-col items-center justify-center px-3 text-center">
-            <span className="absolute left-0 top-1/2 hidden h-px w-24 -translate-x-full bg-olive/45 lg:block" />
-            <span className="absolute right-0 top-1/2 hidden h-px w-24 translate-x-full bg-olive/45 lg:block" />
-            <span className="absolute left-0 top-1/2 hidden h-3 w-3 -translate-x-[calc(100%+6rem)] -translate-y-1/2 bg-olive lg:block" />
-            <span className="absolute right-0 top-1/2 hidden h-3 w-3 translate-x-[calc(100%+6rem)] -translate-y-1/2 bg-olive lg:block" />
-
-            <p className="font-serif text-5xl leading-[0.95] text-text md:text-6xl">
-              YOUR
-              <span className="block">ENERGY</span>
-            </p>
-            <p className="mt-5 text-sm uppercase tracking-[0.42em] text-text-muted">space</p>
-            <div className="my-9 h-10 w-px bg-olive/35" />
-            <p className="max-w-[260px] text-base leading-relaxed text-text-muted">
-              Мягкость, знания и поддержка, которые помогают возвращаться к себе.
-            </p>
-          </div>
-
-          <AuthorPhoto author={salta} />
-          <AuthorGuide author={salta} />
+        <div className="mt-12 flex flex-col items-center gap-3 border-y border-border py-7 text-center sm:flex-row sm:justify-center sm:gap-6">
+          <span className="font-serif text-2xl tracking-tight text-text">
+            YOUR ENERGY <em className="italic">space</em>
+          </span>
+          <span className="hidden h-5 w-px bg-olive/35 sm:block" />
+          <p className="max-w-md text-sm leading-relaxed text-text-muted sm:text-left sm:text-base">
+            Мягкость, знания и поддержка, которые помогают возвращаться к себе.
+          </p>
         </div>
       </Container>
     </section>

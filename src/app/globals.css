@@ -30,8 +30,16 @@ html {
 }
 
 @layer base {
+  main {
+    overflow-x: clip;
+  }
+
   section {
     @apply w-full;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
   }
 
   main > section:not(:first-child) {
